@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
+import Campo from './Campo';
 
 const AdicionaCliente = () => {
   return (
@@ -24,34 +25,10 @@ const AdicionaCliente = () => {
       >
         {(props)=>(
         <form noValidate onSubmit={props.handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="nome">Nome</label>
-            <input id="nome" name="nome" type="text" 
-              className={props.errors.nome && props.touched.nome ? 'is-invalid':''} 
-              onChange={props.handleChange} 
-              value={props.values.nome} 
-              onBlur={props.handleBlur}/>
-            {props.errors.nome && props.touched.nome ? <div className='invalid-feedback'>{props.errors.nome}</div>:null}
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email" type="email" 
-              className={props.errors.email && props.touched.email ? 'is-invalid':''} 
-              onChange={props.handleChange} 
-              value={props.values.email} 
-              onBlur={props.handleBlur}/>
-            {props.errors.email && props.touched.email ? <div className='invalid-feedback'>{props.errors.email}</div>:null}
-          </div>
-          <div className="form-group">
-            <label htmlFor="date">Data de Nascimento</label>
-            <input id="nascimento" name="nascimento" type="date" 
-              className={props.errors.nascimento && props.touched.nascimento ? 'is-invalid':''} 
-              onChange={props.handleChange} 
-              value={props.values.nascimento} 
-              onBlur={props.handleBlur}/>
-            {props.errors.nascimento && props.touched.nascimento ? <div className='invalid-feedback'>{props.errors.nascimento}</div>:null}
-          </div>
-          <button type="submit">Adicionar</button>
+            <Campo id="nome" name="nome" type="text" label="Nome" />
+            <Campo id="email" name="email" type="email" label="E-mail"/>
+            <Campo id="nascimento" name="nascimento" type="date" label="Data de Nascimento"/>
+            <button type="submit">Adicionar</button>
         </form>
         )} 
       </Formik>
